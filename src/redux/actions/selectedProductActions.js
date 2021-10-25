@@ -9,6 +9,6 @@ export const setSelectedProduct = (product) => {
 
 export const removeSelectedProduct = () => {
   return {
-    type: ActionTypes.SET_SELECTED_PRODUCT,
+    type: ActionTypes.REMOVE_SELECTED_PRODUCT,
   };
 };
