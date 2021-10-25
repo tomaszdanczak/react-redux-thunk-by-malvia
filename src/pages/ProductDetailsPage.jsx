@@ -2,7 +2,10 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedProduct } from "../redux/actions/selectedProductActions";
+import {
+  removeSelectedProduct,
+  setSelectedProduct,
+} from "../redux/actions/selectedProductActions";
 import ProductDetails from "../components/ProductDetails";
 
 export default function ProductDetailsPage() {
@@ -20,6 +23,10 @@ export default function ProductDetailsPage() {
 
   useEffect(() => {
     featchProductDetails();
+
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
   }, [productId]);
 
   if (Object.keys(selectedProduct).length === 0) return <div>Loading...</div>;

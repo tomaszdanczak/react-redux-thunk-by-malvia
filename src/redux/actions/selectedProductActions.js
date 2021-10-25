@@ -6,3 +6,9 @@ export const setSelectedProduct = (product) => {
     payload: product,
   };
 };
+
+export const removeSelectedProduct = () => {
+  return {
+    type: ActionTypes.SET_SELECTED_PRODUCT,
+  };
+};
