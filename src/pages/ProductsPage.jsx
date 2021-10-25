@@ -15,7 +15,9 @@ export default function ProductsPage() {
   };
 
   useEffect(() => {
-    fetchProducts();
+    if (allProducts.length === 0) {
+      fetchProducts();
+    }
   }, []);
 
   return (
