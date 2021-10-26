@@ -1,10 +1,15 @@
+import axios from "axios";
 import { ActionTypes } from "../constants/action-types";
 
-export const setSelectedProduct = (product) => {
-  return {
-    type: ActionTypes.SET_SELECTED_PRODUCT,
-    payload: product,
-  };
+export const fetchSelectedProduct = (productId) => async (dispatch) => {
+  const { data } = await axios.get(
+    `http://fakestoreapi.com/products/${productId}`
+  );
+
+  dispatch({
+    type: ActionTypes.FETCH_SELECTED_PRODUCT,
+    payload: data,
+  });
 };
 
 export const removeSelectedProduct = () => {
