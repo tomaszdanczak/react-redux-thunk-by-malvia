@@ -3,7 +3,7 @@ import { ActionTypes } from "../constants/action-types";
 
 export const fetchSelectedProduct = (productId) => async (dispatch) => {
   const { data } = await axios.get(
-    `http://fakestoreapi.com/products/${productId}`
+    `https://fakestoreapi.com/products/${productId}`
   );
 
   dispatch({
