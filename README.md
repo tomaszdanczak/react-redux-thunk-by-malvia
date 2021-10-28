@@ -12,7 +12,7 @@ Test project for practicising the usage of redux and redux-thunk architecture in
 - [Learn React Redux Thunk with Project](https://www.youtube.com/watch?v=JDZRfLGNWdc)
 - [Deploy React Redux Application to Netlify](https://www.youtube.com/watch?v=GqrKlAKOSoc) by [Dipesh Malvia](https://www.youtube.com/channel/UChPxqdfDbulLE9PyUqhijWw)
 
-![App]() // Add static links here
+![App](gh/react-redux-thunk.gif)
 
 ## Live Preview
 
@@ -112,8 +112,9 @@ export const selectedProductReducer = (state = {}, { type, payload }) => {
 
 ### Queries to API using axios
 
-![App Network]() // Add static links here
+![App Network](gh/app-network.gif) 
 
 ### Media queries using Tailwind CSS
 
-![Mediaqueries]() // Add static links here
+![Mediaqueries](gh/app-mediaqueries.gif)
+
