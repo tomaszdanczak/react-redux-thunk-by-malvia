@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb061da2-94ed-43b2-8402-655c382344b8/deploy-status)](https://app.netlify.com/sites/peaceful-stonebraker-2b7f86/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# This is my work with [Learn React Redux with Project](https://www.youtube.com/watch?v=0W6i5LYKCSI), [Learn React Redux Thunk with Project](https://www.youtube.com/watch?v=JDZRfLGNWdc) and [Deploy React Redux Application to Netlify](https://www.youtube.com/watch?v=GqrKlAKOSoc) by [Dipesh Malvia](https://www.youtube.com/channel/UChPxqdfDbulLE9PyUqhijWw)
 
-## Available Scripts
+![App](gh/react-redux-thunk.gif)
 
-In the project directory, you can run:
+## Preview the application live on : [DEMO 🚀](https://peaceful-stonebraker-2b7f86.netlify.app/)
 
-### `npm start`
+There is [original repository](https://github.com/dmalvia/React_Redux_Tutorial) with code from the tutorial.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone this repository
+2. `npm install` in the project root folder
+3. `npm start` to start the project locally
 
-### `npm test`
+## General info
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tutorials I worked on explained usage redux and redux-thunk in React applications.
 
-### `npm run build`
+## Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+During working with tutorials I've tried to refactor code to be better. Also as always I was trying to change as many things as posible.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎓 Things I learned from tutorial
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🌱 how to build architecture of [redux](https://redux.js.org/) applications
+- 🌱 how to move query to api from component to Action Creator using [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- 🌱 how to deploy application automatically using [Netlify](https://www.netlify.com/) (based on changes in github repository)
 
-### `npm run eject`
+## 🚧 Things I did myself ‼️
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🔴 I use [Tailwind CSS](https://tailwindcss.com) instead global styles from index.css and [Semantic UI](https://semantic-ui.com/) as it was shown in the tutorial
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I rebuilt styles using [Tailwind CSS](https://tailwindcss.com). I discovered Tailwind recently and I wanted to practise it. I really like it. For mor complicated elements I used [styled-components](https://styled-components.com/). Also I added media queries using Tailwind.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🔴 I refactored redux structury
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I changed structure of data in store and separated reducers and action creators into others files. Also I changed naming of constants, actions and reducers (now they are more clearly I think).
 
-## Learn More
+### 🔴 I created new components and changed structure of components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I build components`<MainLayout></MainLayout>`, `<Card></Card>` and `<Loading />`. Alco I refactoring structure of components using `<ProductsPage />` and `<ProductDetailsPage />`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⌨️ Code example
 
-### Code Splitting
+- ### Tailwind CSS
+  Tailwind CSS is a modern and increasingly popular framework that is changing the way we work with CSS in our projects. At the beginning you may think this might not be useful but you will change your mind after short work with it. Using Tailwind we can write, read and edit styles faster. The styles the Tailwind provides are beautiful and customizable.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`Example of usage Tailwind in Card.jsx:`
 
-### Analyzing the Bundle Size
+```jsx
+export default function Card({ children }) {
+  return (
+    <div className="w-full px-10 sm:px-0 sm:w-6/12 lg:w-4/12 xl:w-3/12 ">
+      <div className="pb-8 sm:mx-4 h-full">
+        <div className="shadow border-2 rounded-md h-full transition transform hover:-translate-y-1 ">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`Example of usage Tailwind in Header.jsx:`
 
-### Making a Progressive Web App
+```jsx
+export default function Header() {
+  return (
+    <div className="fixed inset-0 w-full z-50 h-14 pt-3 bg-white border shadow">
+      <div className="w-full md:w-11/12 md:my-0 md:mx-auto lg:w-9/12">
+        <h2 className="text-2xl font-medium">FakeShop</h2>
+      </div>
+    </div>
+  );
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- ### reducer
+  In reducer action is destructured so type and payload are available directly. Object ActionTypes is imported to prevent spelling mistakes and duplication of action types.
 
-### Advanced Configuration
+```jsx
+import { ActionTypes } from "../constants/action-types";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+export const selectedProductReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.FETCH_SELECTED_PRODUCT:
+      return { ...payload };
 
-### Deployment
+    case ActionTypes.REMOVE_SELECTED_PRODUCT:
+      return {};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    default:
+      return state;
+  }
+};
+```
 
-### `npm run build` fails to minify
+## 📺 Screenshot GIFs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Queries to API using axios
+
+![App Network](gh/app-network.gif)
+
+### Mediaqueries using Tailwind CSS
+
+![Mediaqueries](gh/app-mediaqueries.gif)
