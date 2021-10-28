@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# React-Redux-Thunk by Malvia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb061da2-94ed-43b2-8402-655c382344b8/deploy-status)](https://app.netlify.com/sites/peaceful-stonebraker-2b7f86/deploys)
 
-## Available Scripts
+## About the project
 
-In the project directory, you can run:
+Test project for practicising the usage of redux and redux-thunk architecture inside of the React apps.
 
-### `npm start`
+# Materials used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Learn React Redux with Project](https://www.youtube.com/watch?v=0W6i5LYKCSI)
+- [Learn React Redux Thunk with Project](https://www.youtube.com/watch?v=JDZRfLGNWdc)
+- [Deploy React Redux Application to Netlify](https://www.youtube.com/watch?v=GqrKlAKOSoc) by [Dipesh Malvia](https://www.youtube.com/channel/UChPxqdfDbulLE9PyUqhijWw)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![App]() // Add static links here
 
-### `npm test`
+## Live Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[DEMO 🚀](https://peaceful-stonebraker-2b7f86.netlify.app/)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository
+2. In the command line type `npm install` in the project root folder
+3. Then `npm start` to start the project locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎓 Lessons learned
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🌱 how to build architecture of [redux](https://redux.js.org/) applications
+- 🌱 how to move api data fetching logic from component to Action Creator using [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- 🌱 how to deploy application automatically using [Netlify](https://www.netlify.com/) (based on changes in github repository)
 
-### `npm run eject`
+## 🚧 My contributions to the project
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🔴 [Tailwind CSS](https://tailwindcss.com) used instead global styles from index.css and [Semantic UI](https://semantic-ui.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The whole project has been rebuilt with [Tailwind CSS](https://tailwindcss.com) and more complicated components were created with [styled-components](https://styled-comnts.com/). Additionally, media query were used with Tailwind.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🔴 Refactored Redux structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The structure of the data in Redux was reorganised, reducers and action creators separated to the separate files. Moreover, naming of the variables changed to make the whole code even more readable.
 
-## Learn More
+### 🔴 New components added and some structure changed
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+New components:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `<MainLayout />`
+- `<Card />`
+- `<Loading />`
 
-### Code Splitting
+Structure improvements in the following components:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `<ProductsPage />`
+- `<ProductDetailsPage />`
 
-### Analyzing the Bundle Size
+## ⌨️ Code example
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- ### Tailwind CSS
+  Tailwind CSS is a modern CSS forwork with a growing popularity, that changes the way we work with CSS in our projects. With Tailwind we can write, read and edit styles faster. Additionally, the styles the Tailwind provides are beautiful and customizable.
 
-### Making a Progressive Web App
+`Example of Tailwind usage in Card.jsx:`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+export default function Card({ children }) {
+  return (
+    <div className='w-full px-10 sm:px-0 sm:w-6/12 lg:w-4/12 xl:w-3/12 '>
+      <div className='pb-8 sm:mx-4 h-full'>
+        <div className='shadow border-2 rounded-md h-full transition transform hover:-translate-y-1 '>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
 
-### Advanced Configuration
+`Example of usage Tailwind in Header.jsx:`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```jsx
+export default function Header() {
+  return (
+    <div className='fixed inset-0 w-full z-50 h-14 pt-3 bg-white border shadow'>
+      <div className='w-full md:w-11/12 md:my-0 md:mx-auto lg:w-9/12'>
+        <h2 className='text-2xl font-medium'>FakeShop</h2>
+      </div>
+    </div>
+  );
+}
+```
 
-### Deployment
+- ### Reducer
+  Destructurisation used on the object passed to the Reducer, so type and payload are available directly. Object ActionTypes is imported to prevent spelling mistakes and duplication of action types.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```jsx
+import { ActionTypes } from "../constants/action-types";
 
-### `npm run build` fails to minify
+export const selectedProductReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.FETCH_SELECTED_PRODUCT:
+      return { ...payload };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    case ActionTypes.REMOVE_SELECTED_PRODUCT:
+      return {};
+
+    default:
+      return state;
+  }
+};
+```
+
+## 📺 Screenshot GIFs
+
+### Queries to API using axios
+
+![App Network]() // Add static links here
+
+### Media queries using Tailwind CSS
+
+![Mediaqueries]() // Add static links here
