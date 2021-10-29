@@ -4,7 +4,7 @@
 
 ## About the project
 
-Test project for practicising the usage of redux and redux-thunk architecture inside of the React apps.
+Testing Redux and redux-thunk architecture inside of the React apps.
 
 # Materials used
 
@@ -26,9 +26,9 @@ Test project for practicising the usage of redux and redux-thunk architecture in
 
 ## 🎓 Lessons learned
 
-- 🌱 how to build architecture of [redux](https://redux.js.org/) applications
-- 🌱 how to move api data fetching logic from component to Action Creator using [redux-thunk](https://github.com/reduxjs/redux-thunk)
-- 🌱 how to deploy application automatically using [Netlify](https://www.netlify.com/) (based on changes in github repository)
+- 🌱 building architecture of [redux](https://redux.js.org/) applications
+- 🌱 moving api data fetching logic from component to Action Creator using [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- 🌱 deploying application automatically using [Netlify](https://www.netlify.com/) (based on changes in github repository)
 
 ## 🚧 My contributions to the project
 
